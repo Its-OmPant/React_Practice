@@ -3,6 +3,8 @@
 	"version": "1.0.0",
 	"description": "Code Repo for React Practice",
 	"scripts": {
+		"dev": "parcel index.html",
+		"build": "parcel build index.html",
 		"test": "jest"
 	},
 	"repository": {
@@ -17,5 +19,9 @@
 	"homepage": "https://github.com/Its-OmPant/React_Practice#readme",
 	"devDependencies": {
 		"parcel": "^2.15.4"
+	},
+	"dependencies": {
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1"
 	}
 }
