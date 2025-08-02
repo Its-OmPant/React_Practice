@@ -1,0 +1,21 @@
+{
+	"name": "react_practice",
+	"version": "1.0.0",
+	"description": "Code Repo for React Practice",
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Its-OmPant/React_Practice.git"
+	},
+	"author": "Om Pant",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Its-OmPant/React_Practice/issues"
+	},
+	"homepage": "https://github.com/Its-OmPant/React_Practice#readme",
+	"devDependencies": {
+		"parcel": "^2.15.4"
+	}
+}
