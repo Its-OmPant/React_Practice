@@ -1,17 +1,41 @@
-# Day 06 Let's Explore The World
+# Day 07 Finding the path
 
-## Monoliths vs Microservice Architecture
+In this lecture we will explore routing in react, but before it lets go deep in useEffect Hook
 
-Firstly we talked about monolith and microservices architecture. in monolith architecture the various parts of a code e.g UI, auth, db, api etc are all clubbed together as a single service but in microservice architecture all of these can exists as seperate services that talks to each other when required.
+the useEffect hook takes two arguments
+1 - Callback Functionn (required)
+2 - Dependency Array (optional)
 
-Microservices architecture helps is seperation of concerns and also reduces the deploymet complexities.
+```javascript
+useEffect(() => {}, []);
+```
 
-## Approachs To Make API Calls.
+Now based on the dependency array useEffect's behaviour can change
 
-To load the initial ui dynamically we generally have two approaches to make api calls and get data
+-   If it is not Passed -> the callback will be executed in each render of the component
+-   If passed an empty array -> the callback will be executed only in the initial render of the component (just once)
+-   If there's some dependency -> then the callback will be executed each time the dependency is updated along with initial render.
 
-1 - When the app starts to load, then we make an api call to server requesting the data, then once the data is available we do render it on the page
+### useState Best Practices
 
-2 - When the app starts to load, first load some bare minimum structure of UI, and then make the api call, then once data is available re-render it.
+-   useState hooks is intended to create local state variables inside components and should be only used for this purpose only.
 
-This second approach helps increasing the UX as user doesn't have to blankly stare at the screen and wait for data to load.
+these are the things to avoid while using useState
+
+-   Never declare state variables outside the functional component.
+-   Never declare state variables inside if else or loops statments.
+-   Never declare state variables inside any normal function.
+
+## Routing In React
+
+For routing in react we will be using another js library known as react-router.
+
+-   For this library to work we will need to declare some routing configurations in our root level component.
+
+## Two Types of Routing in Web Apps
+
+1 - Server Side Routing
+In Server side routing, the client makes a different http requests for seperate pages and the server handles the routing via apis
+
+2 - Client Side Routing
+In Client side routing the server sends whole code in one request and the routes and its content is prepared at the client side

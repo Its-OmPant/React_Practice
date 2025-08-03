@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import resList from "../utils/mockData";
 import ShimmerBody from "./ShimmerBody";
+import { Link } from "react-router";
 
 function Body() {
 	const [initialData, setInitialData] = useState([]);
@@ -16,7 +17,7 @@ function Body() {
 			setRestaurantsList(initialData);
 		} else {
 			let filteredData = restaurantsList.filter(
-				(d) => d.info.avgRating >= 4.4
+				(d) => d.avgRating >= 4.4
 			);
 			setRestaurantsList(filteredData);
 		}
@@ -35,9 +36,7 @@ function Body() {
 		}
 
 		const searchResult = resList.filter((data) => {
-			return data?.info?.name
-				?.toLowerCase()
-				.includes(query.toLowerCase());
+			return data?.name?.toLowerCase().includes(query.toLowerCase());
 		});
 
 		if (searchResult.length === 0) {
@@ -88,7 +87,13 @@ function Body() {
 			</div>
 			<div className="res-container">
 				{restaurantsList.map((resData) => (
-					<Card resData={resData} key={resData.info.id} />
+					<Link
+						className="card-link"
+						key={resData.id}
+						to={`restaurants/${resData.parentId}`}
+					>
+						<Card resData={resData} />
+					</Link>
 				))}
 			</div>
 		</div>

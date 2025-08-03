@@ -2,7 +2,7 @@ import { IMAGE_BASE_URL } from "../utils/constants";
 
 function Card({ resData }) {
 	const { name, cloudinaryImageId, costForTwo, cuisines, avgRating } =
-		resData?.info;
+		resData;
 	return (
 		<div className="card">
 			<img
@@ -10,8 +10,8 @@ function Card({ resData }) {
 				src={IMAGE_BASE_URL + cloudinaryImageId}
 				alt="resImage"
 			/>
-			<h3>{name}</h3>
-			<span className="cuisines">{cuisines.join(", ")}</span>
+			<h3 className="">{name}</h3>
+			<div className="cuisines">{cuisines.join(", ")}</div>
 			<div className="card-footer">
 				<span className="cost">{costForTwo}</span>
 				<span className="rating">{avgRating} ⭐</span>

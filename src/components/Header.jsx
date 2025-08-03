@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 function Header() {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,10 +12,15 @@ function Header() {
 			<div className="logo">FOODIFY</div>
 			<div className="menu">
 				<ul>
-					<li>Home</li>
-					<li>About</li>
-					<li>Contact US</li>
-					<li>Cart</li>
+					<li>
+						<Link to="about"> About</Link>
+					</li>
+					<li>
+						<Link to="contact"> Contact Us</Link>
+					</li>
+					<li>
+						<Link to="cart"> Cart</Link>
+					</li>
 					<li>
 						<button className="login" onClick={toggleLoginHandler}>
 							{isLoggedIn ? "Logout" : "Login"}
