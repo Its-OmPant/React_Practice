@@ -9,6 +9,7 @@ body,
 #root {
 	height: 100%;
 	width: 100%;
+	font-family: sans-serif;
 }
 
 .header {
@@ -42,7 +43,7 @@ body,
 }
 
 .card {
-	width: 250px;
+	width: 20%;
 	border-radius: 20px;
 	margin: 10px;
 	padding: 10px;
@@ -53,7 +54,7 @@ body,
 
 .card .image {
 	width: 100%;
-	height: 150px;
+	height: 180px;
 	background-color: rgb(128, 128, 128);
 	border-radius: 10px;
 	margin-bottom: 10px;
@@ -63,7 +64,34 @@ body,
 	transition: all 0.2s;
 }
 
+.card-footer {
+	display: flex;
+	justify-content: space-between;
+	margin: 5px 0;
+}
+
 .cost {
-	display: block;
 	color: red;
+}
+
+.filter-container {
+	width: 82%;
+	margin: 10px auto;
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	position: relative;
+}
+
+.filter {
+	border: 1px solid black;
+	border-radius: 20px;
+	padding: 4px 18px;
+	cursor: pointer;
+}
+
+.clear-filter {
+	position: absolute;
+	right: 10px;
 }
