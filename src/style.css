@@ -23,6 +23,7 @@ body,
 .menu ul {
 	list-style-type: none;
 	display: flex;
+	align-items: center;
 	gap: 40px;
 }
 
@@ -35,15 +36,22 @@ body,
 	height: 100%;
 }
 
-.res-container {
+.res-container,
+.shimmer-body {
 	height: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
-.card {
+.shimmer-body {
+	margin-top: 50px;
+}
+
+.card,
+.shimmer-card {
 	width: 20%;
+	max-height: 300px;
 	border-radius: 20px;
 	margin: 10px;
 	padding: 10px;
@@ -52,7 +60,8 @@ body,
 	background-color: #f0f0f0;
 }
 
-.card .image {
+.image,
+.shimmer-img {
 	width: 100%;
 	height: 180px;
 	background-color: rgb(128, 128, 128);
@@ -74,14 +83,20 @@ body,
 	color: red;
 }
 
-.filter-container {
+.top-container {
 	width: 82%;
 	margin: 10px auto;
 	margin-top: 20px;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	gap: 8px;
 	position: relative;
+}
+
+.search input,
+.search button {
+	padding: 5px;
 }
 
 .filter {
@@ -89,9 +104,49 @@ body,
 	border-radius: 20px;
 	padding: 4px 18px;
 	cursor: pointer;
+	user-select: none;
+}
+
+.filter.active {
+	background-color: #cfcfcf;
+}
+
+.filter.inactive {
+	background-color: transparent;
 }
 
 .clear-filter {
 	position: absolute;
 	right: 10px;
+}
+
+.shimmer-img {
+	background-color: #d7d7d7;
+}
+.shimmer-name {
+	display: block;
+	border-radius: 8px;
+	height: 8px;
+	width: 100%;
+	margin: 5px 0;
+	background-color: #d7d7d7;
+}
+.shimmer-cuisines {
+	display: block;
+	border-radius: 5px;
+	height: 8px;
+	width: 100%;
+	background-color: #d7d7d7;
+}
+.shimmer-cost,
+.shimmer-rating {
+	display: block;
+	width: 49%;
+	height: 6px;
+	border-radius: 5px;
+	background-color: #d7d7d7;
+}
+
+.login {
+	padding: 4px 16px;
 }

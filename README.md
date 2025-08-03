@@ -1,25 +1,17 @@
-# Day 05 Let's Get Hooked
+# Day 06 Let's Explore The World
 
-In this lecture we have refactored our old code into mupliple files. seperating each component and the mock data and constants.
+## Monoliths vs Microservice Architecture
 
-We also have looked in to react hooks.
+Firstly we talked about monolith and microservices architecture. in monolith architecture the various parts of a code e.g UI, auth, db, api etc are all clubbed together as a single service but in microservice architecture all of these can exists as seperate services that talks to each other when required.
 
-## React Hooks
+Microservices architecture helps is seperation of concerns and also reduces the deploymet complexities.
 
-React hooks are just normal javascript functions with some superpowers. there are multiple hooks in react. the most used and most common of them are these two
+## Approachs To Make API Calls.
 
--   useState()
--   useEffect()
+To load the initial ui dynamically we generally have two approaches to make api calls and get data
 
-We explored useState Hooks - it provides access to a special type of variable known as state variable, which react keeps track of. anytime the value of this state variable changes the react triggers re-render for that component.
+1 - When the app starts to load, then we make an api call to server requesting the data, then once the data is available we do render it on the page
 
-To change the value of this state variable useState hook also provides a setter function.
+2 - When the app starts to load, first load some bare minimum structure of UI, and then make the api call, then once data is available re-render it.
 
-## React Reconciliation Algorithm (React Fiber)
-
-This is the core algorithm of react that determines only the necessary part of the ui that needs to be changes and then updates the actual dom based on the results.
-
-To do so, it keeps track of a parallel DOM , aka virtual dom (which is nothing but made up of react elements), as sson as the state value gets updated, react triggers what known as a DIFF ALGORITHM, which determines the changed part of a ui by comparing the previous virtual dom with the updated virtual dom. then changes the actual dom accordingly.
-
-This is only the simpler explanation of this react Fiber algorithm
-more accurate details can be found HERE -> [REACT_RECONCILIATION]('https://github.com/acdlite/react-fiber-architecture')
+This second approach helps increasing the UX as user doesn't have to blankly stare at the screen and wait for data to load.

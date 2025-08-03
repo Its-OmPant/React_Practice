@@ -1,37 +1,89 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Card from "./Card";
 import resList from "../utils/mockData";
+import ShimmerBody from "./ShimmerBody";
 
 function Body() {
-	const [initialData, setInitialData] = useState(resList);
+	const [initialData, setInitialData] = useState([]);
 	const [restaurantsList, setRestaurantsList] = useState(initialData);
+	const [isOnlyTopRestaurant, setIsOnlyTopRestaurant] = useState(false);
+	const [query, setQuery] = useState("");
 
-	function handleTopRatedFilter(e) {
+	function TopRatedFilterToggleHandler(e) {
 		e.preventDefault();
-		let filteredData = restaurantsList.filter(
-			(d) => d.info.avgRating >= 4.4
-		);
-		console.log(filteredData);
-		setRestaurantsList(filteredData);
+		if (isOnlyTopRestaurant) {
+			setRestaurantsList(initialData);
+		} else {
+			let filteredData = restaurantsList.filter(
+				(d) => d.info.avgRating >= 4.4
+			);
+			setRestaurantsList(filteredData);
+		}
+		setIsOnlyTopRestaurant(!isOnlyTopRestaurant);
 	}
 
-	function handleClearFilter(e) {
+	function handleQueryChange(e) {
 		e.preventDefault();
-		setRestaurantsList(initialData);
+		setQuery(e.target.value);
 	}
 
+	function search(e) {
+		e.preventDefault();
+		if (query === "") {
+			alert("Please Enter Query To Search");
+		}
+
+		const searchResult = resList.filter((data) => {
+			return data?.info?.name
+				?.toLowerCase()
+				.includes(query.toLowerCase());
+		});
+
+		if (searchResult.length === 0) {
+			alert("Not Found");
+			setQuery("");
+			return;
+		}
+		setRestaurantsList(searchResult);
+	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			setInitialData(resList);
+			setRestaurantsList(resList);
+		}, 300);
+	}, []);
+
+	if (restaurantsList.length === 0) {
+		return <ShimmerBody />;
+	}
 	return (
 		<div className="body">
-			<div className="filter-container">
-				<div className="filter" onClick={handleTopRatedFilter}>
-					Top Rated Restaurents
+			<div className="top-container">
+				<div className="filter-container">
+					<div
+						className={`filter ${
+							isOnlyTopRestaurant ? "active" : "inactive"
+						}`}
+						onClick={TopRatedFilterToggleHandler}
+					>
+						Top Rated Restaurents
+					</div>
 				</div>
-				<div
-					className="filter clear-filter"
-					onClick={handleClearFilter}
-				>
-					Clear ❌
+				<div className="search-container">
+					<div className="search">
+						<input
+							type="text"
+							name=""
+							id=""
+							value={query}
+							onChange={handleQueryChange}
+						/>
+						<button type="submit" onClick={search}>
+							search
+						</button>
+					</div>
 				</div>
 			</div>
 			<div className="res-container">
