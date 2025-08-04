@@ -22,4 +22,4 @@ This is the core algorithm of react that determines only the necessary part of t
 To do so, it keeps track of a parallel DOM , aka virtual dom (which is nothing but made up of react elements), as sson as the state value gets updated, react triggers what known as a DIFF ALGORITHM, which determines the changed part of a ui by comparing the previous virtual dom with the updated virtual dom. then changes the actual dom accordingly.
 
 This is only the simpler explanation of this react Fiber algorithm
-more accurate details can be found HERE -> [REACT_RECONCILIATION]('https://github.com/acdlite/react-fiber-architecture')
+more accurate details can be found HERE -> [REACT_RECONCILIATION](https://github.com/acdlite/react-fiber-architecture)
