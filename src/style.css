@@ -191,3 +191,34 @@ a {
 .main-menu ul li {
 	margin: 10px 0;
 }
+
+.about-page {
+	width: 40%;
+	margin: 40px auto;
+}
+
+.about-heading {
+	text-align: center;
+	font-size: 2rem;
+	color: teal;
+	font-family: serif;
+	margin: 10px 0;
+	text-decoration-line: underline;
+	text-decoration-style: wavy;
+	text-underline-offset: 8px;
+}
+
+.user-card {
+	background-color: #b7ffff;
+	margin: 25px 0px;
+	padding: 10px;
+	border-radius: 15px;
+}
+.user-card:hover {
+	background-color: #a2ffff;
+}
+.user-name {
+	font-weight: 200;
+	font-size: 1.2rem;
+	margin: 5px 0;
+}
