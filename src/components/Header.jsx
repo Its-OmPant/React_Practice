@@ -7,6 +7,7 @@ function Header() {
 	function toggleLoginHandler() {
 		setIsLoggedIn(isLoggedIn ? false : true);
 	}
+
 	return (
 		<div className="header">
 			<div className="logo">FOODIFY</div>
@@ -23,6 +24,9 @@ function Header() {
 					</li>
 					<li>
 						<Link to="cart"> Cart</Link>
+					</li>
+					<li>
+						<Link to="grocery"> Grocery</Link>
 					</li>
 					<li>
 						<button className="login" onClick={toggleLoginHandler}>
